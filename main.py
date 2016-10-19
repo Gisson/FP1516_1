@@ -75,7 +75,7 @@ def codifica2(cadeia,chave):
 # Args: cod - 2 digits for decryption, chave - decryption key
 # Return: character decrypted
 def obtem_car2(cod,chave):
-    return chave[int(list(cod)[0])][int(list(cod)[1])] if (int(list(cod)[0])<=len(chave) and int(list(cod)[1])<=len(chave[int(list(cod)[1])])) else '?';
+    return chave[int(list(cod)[0])][int(list(cod)[1])] if cod!="XX" else '?';
 # Args: cad_codificada - string to decode, chave - decryption key
 # Return: string cad_codificada decrypted
 def descodifica2(cad_codificada,chave):
