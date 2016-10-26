@@ -1,3 +1,5 @@
+from math import *;
+
 # Args: letras - tuple of 25 characters
 # Return: 1 tuple with 5 character tuples
 #TODO: Refactor(horrible code)
@@ -48,14 +50,16 @@ def gera_chave2(letras):
     result=();
     aux=();
     count=0;
+    maxSize=calculateSize(len(letras));
     for character in letras:
         count+=1;
         aux+=(character,);
-        if(count>=5):
+        if(count>=maxSize):
             count=0;
             result+=(aux,);
             aux=();
-    result+=(aux,);
+    if(len(aux)>0):
+	       result+=(aux,);
     return result;
 # Args: cat - character to search , chave - tuple
 # Return: encryption of cat
@@ -84,3 +88,7 @@ def descodifica2(cad_codificada,chave):
         result+=obtem_car2(list(cad_codificada)[i]+list(cad_codificada)[i+1],chave);
     return result;
 #Auxiliary functions
+
+def calculateSize(length):
+    root=sqrt(length);
+    return floor(root) if( root-floor(root)<0.5) else ceil(root);
